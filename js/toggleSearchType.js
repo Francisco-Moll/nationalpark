@@ -11,12 +11,18 @@ function toggleDropdowns() {
     var typeDropdown = document.getElementById('typeDropdown');
     
     var searchByLocation = document.getElementById('park_location').checked;
+    var searchByType = document.getElementById('park_type').checked;
     
     if (searchByLocation) {
         locationDropdown.style.display = 'block';
         typeDropdown.style.display = 'none';
-    } else {
+    }
+    else if (searchByType){
         locationDropdown.style.display = 'none';
         typeDropdown.style.display = 'block';
+    }
+    else {
+        locationDropdown.style.display = 'none';
+        typeDropdown.style.display = 'none';
     }
 }
