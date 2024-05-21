@@ -16,18 +16,42 @@
         <div class="filler"></div>
         <div class="container pillbox">
             <h2>Search for National Parks</h2>
-            <div>
-                <label for="location">Search by Location:</label>
-                <select id="location" onchange="updateLocationList()">
-                    <option value="">-- Select a State --</option>
-                    <!-- Populate by JavaScript -->
-                </select>
+            <div class="radio_selection">
+                <div>
+                    <input type="radio" id="park_location" name="search" value="loc" onclick="toggleDropdowns()" checked>
+                    <label for="park_location">Search by Park Location</label>
+                </div>
+                <div>
+                    <input type="radio" id="park_type" name="search" value="type" onclick="toggleDropdowns()">
+                    <label for="park_type">Search by Park Type</label>
+                </div>
             </div>
+            <br>
+            <div class="dropdowns">
+                <div id="locationDropdown">
+                    <label for="location">Search States:</label>
+                    <select id="location" onchange="updateLocationList()">
+                        <option value="">-- Select State --</option>
+                        <!-- Populate by JavaScript -->
+                    </select>
+                </div>
+                <div id="typeDropdown">
+                    <label for="type">Search Park Types:</label>
+                    <select id="type" onchange="updateTypeList()">
+                        <option value="">-- Select Park Type --</option>
+                        <!-- Populate by JavaScript -->
+                    </select>
+                </div>
+            </div>
+
             <div id="park_details">
                 <!-- Matching parks will be displayed via JavaScript -->
             </div>
 
+
+            <script src="../js/toggleSearchType.js"></script>
             <script src="../js/parallax.js"></script>
+            <script src="../js/data/parkTypeData.js"></script>
             <script src="../js/data/locationData.js"></script>
             <script src="../js/data/nationalParkData.js"></script>
             <script src="../js/parkSearch.js"></script>

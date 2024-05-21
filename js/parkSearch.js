@@ -10,6 +10,16 @@ function populateLocationDropdown() {
         locationSelect.appendChild(option);
     });
 }
+// Populate type dropdown
+function populateTypeDropdown() {
+    const typeSelect = document.getElementById('type');
+    parkTypesArray.forEach(type => {
+        const option = document.createElement('option');
+        option.value = type;
+        option.textContent = type;
+        typeSelect.appendChild(option);
+    });
+}
 
 function updateLocationList() {
     const selectedState = document.getElementById('location').value;
@@ -42,4 +52,5 @@ function updateLocationList() {
 // Init.
 document.addEventListener('DOMContentLoaded', function () {
     populateLocationDropdown();
+    populateTypeDropdown();
 });
