@@ -6860,3 +6860,74 @@ const nationalParksArray = [
         }
     }
 ]
+
+function populateStateDropdown() {
+    const states = [...new Set(nationalParksArray.map(park => park.State))].sort();
+    const locationSelect = document.getElementById('location');
+
+    states.forEach(state => {
+        const option = document.createElement('option');
+        option.value = state;
+        option.textContent = state;
+        locationSelect.appendChild(option);
+    });
+}
+
+function updateLocationList() {
+    const selectedState = document.getElementById('location').value;
+    const parkDetails = document.getElementById('park_details');
+    parkDetails.innerHTML = ''; // Clear previous results
+
+    if (selectedState) {
+        const matchingParks = nationalParksArray.filter(park => park.State === selectedState);
+
+        if (matchingParks.length > 0) {
+            matchingParks.forEach(park => {
+                const parkDiv = document.createElement('div');
+                parkDiv.innerHTML = `
+                    <h3>${park.LocationName}</h3>
+                    <p>${park.Address}, ${park.City}, ${park.State} ${park.ZipCode}</p>
+                    <p>Phone: ${park.Phone}</p>
+                    <p>Fax: ${park.Fax}</p>
+                    <p>Latitude: ${park.Latitude}, Longitude: ${park.Longitude}</p>
+                `;
+                parkDetails.appendChild(parkDiv);
+            });
+        } else {
+            parkDetails.innerHTML = '<p>No parks found for the selected state.</p>';
+        }
+    } else {
+        parkDetails.innerHTML = '<p>Please select a state.</p>';
+    }
+}
+
+// Initialize dropdown on page load
+document.addEventListener('DOMContentLoaded', populateStateDropdown);
+
+/*
+// Populate location dropdown
+function populateLocationDropdown() {
+    const locationSelect = document.getElementById('location');
+    locationsArray.forEach(loc => {
+        const option = document.createElement('option');
+        option.value = loc;
+        option.textContent = loc;
+        locationSelect.appendChild(option);
+    });
+}
+
+function showLocationDetails() {
+    const locationSelect = document.getElementById('location');
+    const detailsSection = document.getElementById('park_details');
+    const selectedPark = nationalParksArray.find(a => a.LocationID === locationSelect.value);
+    if (selectedPark) {
+        detailsSection.innerHTML = `<h3>${selectedPark.LocationName}</h3>`;
+    }
+    detailsSection.style.display = 'block';
+}
+
+// Init.
+document.addEventListener('DOMContentLoaded', function () {
+    populateLocationDropdown();
+});
+*/
