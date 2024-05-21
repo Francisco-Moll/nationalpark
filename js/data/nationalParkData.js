@@ -6861,14 +6861,14 @@ const nationalParksArray = [
     }
 ]
 
-function populateStateDropdown() {
-    const states = [...new Set(nationalParksArray.map(park => park.State))].sort();
+/*
+// Populate location dropdown
+function populateLocationDropdown() {
     const locationSelect = document.getElementById('location');
-
-    states.forEach(state => {
+    locationsArray.forEach(loc => {
         const option = document.createElement('option');
-        option.value = state;
-        option.textContent = state;
+        option.value = loc;
+        option.textContent = loc;
         locationSelect.appendChild(option);
     });
 }
@@ -6899,31 +6899,6 @@ function updateLocationList() {
     } else {
         parkDetails.innerHTML = '<p>Please select a state.</p>';
     }
-}
-
-// Initialize dropdown on page load
-document.addEventListener('DOMContentLoaded', populateStateDropdown);
-
-/*
-// Populate location dropdown
-function populateLocationDropdown() {
-    const locationSelect = document.getElementById('location');
-    locationsArray.forEach(loc => {
-        const option = document.createElement('option');
-        option.value = loc;
-        option.textContent = loc;
-        locationSelect.appendChild(option);
-    });
-}
-
-function showLocationDetails() {
-    const locationSelect = document.getElementById('location');
-    const detailsSection = document.getElementById('park_details');
-    const selectedPark = nationalParksArray.find(a => a.LocationID === locationSelect.value);
-    if (selectedPark) {
-        detailsSection.innerHTML = `<h3>${selectedPark.LocationName}</h3>`;
-    }
-    detailsSection.style.display = 'block';
 }
 
 // Init.
