@@ -29,6 +29,11 @@ footer {
 header h1 a {
     color: white;
     text-decoration: none;
+    transition: transform 02.s;
+}
+
+#header_text:hover {
+    animation: bounce 0.5s;
 }
 
 .container {
