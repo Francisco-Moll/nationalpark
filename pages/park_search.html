@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parks</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <header>
+        <h1><a href="../index.html">America's National Parks</a></h1>
+    </header>
+    <main>
+        <div class="filler"></div>
+        <div class="container pillbox">
+            <h2>Search for National Parks</h2>
+            <div>
+                <label for="location">Search by Location:</label>
+                <select id="location" onchange="updateLocationList()">
+                    <option value="">-- Select a State --</option>
+                    <!-- Populate by JavaScript -->
+                </select>
+            </div>
+            <div id="results">
+                <!-- Matching parks will be displayed via JavaScript -->
+            </div>
+
+            <script src="../js/data/nationalParkData.js"></script>
+            <script src="../js/data/locationData.js"></script>
+            <script src="../js/searchParks.js"></script>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024</p>
+    </footer>
+</body>
+
+</html>
