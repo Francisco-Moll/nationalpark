@@ -20,7 +20,7 @@
             <h2>Search for Mountains</h2>
             <div class="mountainDropdown">
                 <label for="mtDropdown">Search Mountains:</label>
-                <select id="mtDropdown" onchange="updateMountainList()">
+                <select id="mtDropdown" onchange="updateMountainDetails()">
                     <option value="">-- Select Mountain --</option>
                     <!-- Populate by JavaScript -->
                 </select>
@@ -29,6 +29,10 @@
         <br>
         <div class="container" id="mountain_details">
             <!-- Mountain will be displayed via JavaScript -->
+        </div>
+        <br>
+        <div class="container" id="sunrise_sunset_details">
+            <!-- Sunrise and sunset times will be displayed via JavaScript -->
         </div>
     </main>
 
