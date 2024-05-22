@@ -10,6 +10,7 @@ function populateLocationDropdown() {
         locationSelect.appendChild(option);
     });
 }
+
 // Populate type dropdown
 function populateTypeDropdown() {
     const typeSelect = document.getElementById('type');
