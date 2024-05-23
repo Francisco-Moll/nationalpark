@@ -50,7 +50,7 @@ function updateLocationList() {
         matchingParks.forEach(park => {
             const parkDiv = document.createElement('div');
             parkDiv.innerHTML = `
-                <div class="pillbox">
+                <div class="pillbox" id="gen_div">
                     <h3>${park.LocationName}</h3>
                     <p>${park.Address}, ${park.City}, ${park.State} ${park.ZipCode}</p>
                     ${park.Phone ? `<p>Phone: ${park.Phone}</p>` : ''}
